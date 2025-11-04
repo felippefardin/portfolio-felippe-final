@@ -203,8 +203,9 @@ export default function PortfolioFelippe() {
                   <h3 className="font-semibold text-2xl">Bug Criativo</h3>
                   <p className="mt-3 text-sm opacity-80">
                     {/* ADICIONE SUA DESCRIÇÃO EM INGLÊS AQUI */}
-                    This is a [describe the site] website, created for [site objective]. 
-                    It allows users to [main user action].
+                    This is a personal project I created to test my skills and have my own basic website. It was developed with the goal of showcasing my potential and increasing my opportunities in the job market.
+
+It allows users to explore my work and learn more about my professional experience.
                   </p>
                   
                   <div className="mt-4">
