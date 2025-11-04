@@ -17,40 +17,40 @@ export default function PortfolioFelippe() {
     try { localStorage.setItem('pf:dark', dark ? '1' : '0'); } catch (e) {}
   }, [dark]);
 
-  // --- PROJETOS ESTÁTICOS ATUALIZADOS ---
+  // --- PROJETOS ATUALIZADOS PARA INGLÊS ---
   const projects = [
     {
       id: 1,
-      title: 'Landing Page Mercado',
-      tags: ['HTML', 'CSS', 'JavaScript'], // (Tags de exemplo, você pode ajustar)
-      description: 'Uma landing page de mercado, focada em conversão.', // (Descrição de exemplo)
-      image: '/projects/project1.png', // (Você pode adicionar uma imagem em public/projects/)
+      title: 'Market Landing Page',
+      tags: ['HTML', 'CSS', 'JavaScript'],
+      description: 'A market landing page, focused on conversion.',
+      image: '/projects/project1.png',
       repo: 'https://github.com/felippefardin/landing_page_mercado',
-      live: '#' // (Ajuste o link "live" se houver)
+      live: '#'
     },
     {
       id: 2,
-      title: 'App Controle de Contas',
-      tags: ['React', 'Node.js', 'App'], // (Tags de exemplo)
-      description: 'Aplicação para controle de contas pessoais e financeiras.', // (Descrição de exemplo)
+      title: 'Account Control App',
+      tags: ['React', 'Node.js', 'App'],
+      description: 'Application for personal and financial account control.',
       image: '/projects/project2.png',
       repo: 'https://github.com/felippefardin/app-controle-contas',
       live: '#'
     },
     {
       id: 3,
-      title: 'Execução Contratual',
-      tags: ['PHP', 'Laravel', 'Gestão'], // (Tags de exemplo)
-      description: 'Sistema para gerenciamento e execução de contratos.', // (Descrição de exemplo)
+      title: 'Contract Execution',
+      tags: ['PHP', 'Laravel', 'Management'],
+      description: 'System for managing and executing contracts.',
       image: '/projects/project3.png',
       repo: 'https://github.com/felippefardin/execucaocontratual',
       live: '#'
     },
     {
       id: 4,
-      title: 'Projeto Calculadora',
-      tags: ['JavaScript', 'HTML', 'CSS'], // (Tags de exemplo)
-      description: 'Uma calculadora funcional construída com tecnologias web.', // (Descrição de exemplo)
+      title: 'Calculator Project',
+      tags: ['JavaScript', 'HTML', 'CSS'],
+      description: 'A functional calculator built with web technologies.',
       image: '/projects/project4.png',
       repo: 'https://github.com/felippefardin/projeto_calculadora',
       live: '#'
@@ -184,13 +184,72 @@ export default function PortfolioFelippe() {
           <div className="max-w-6xl mx-auto px-6">
             <motion.h2 className="text-2xl font-bold" initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>Projects</motion.h2>
 
+            {/* --- SEÇÃO DE PROJETO EM DESTAQUE ATUALIZADA --- */}
+            <motion.div 
+              className="mt-8 mb-12"
+              variants={item} 
+              initial="hidden" 
+              whileInView="show" 
+              viewport={{ once: true }}
+            >
+              <article className="rounded-xl overflow-hidden shadow-lg bg-white dark:bg-gray-900/40 border dark:border-gray-800 grid md:grid-cols-2">
+                {/* Imagem Adicionada */}
+                <div className="h-64 md:h-full bg-gray-200 dark:bg-gray-800">
+                  <img src="/images/Bugcriativo.png" alt="Bug Criativo" className="w-full h-full object-cover" />
+                </div>
+                
+                {/* Conteúdo Traduzido */}
+                <div className="p-6">
+                  <h3 className="font-semibold text-2xl">Bug Criativo</h3>
+                  <p className="mt-3 text-sm opacity-80">
+                    {/* ADICIONE SUA DESCRIÇÃO EM INGLÊS AQUI */}
+                    This is a [describe the site] website, created for [site objective]. 
+                    It allows users to [main user action].
+                  </p>
+                  
+                  <div className="mt-4">
+                    <h4 className="font-semibold mb-2">Main Features:</h4>
+                    <ul className="list-disc list-inside space-y-1 text-sm opacity-80">
+                      {/* ADICIONE AS FUNCIONALIDADES EM INGLÊS AQUI */}
+                      <li>Feature 1 (e.g., Blog System)</li>
+                      <li>Feature 2 (e.g., Project Gallery)</li>
+                      <li>Feature 3 (e.g., Dynamic Contact Form)</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="mt-4">
+                    <h4 className="font-semibold mb-2">Technologies Used:</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {/* ADICIONE AS TECNOLOGIAS AQUI */}
+                      <span className="text-xs px-2 py-1 rounded bg-gray-100 dark:bg-gray-800/50">PHP</span>
+                      <span className="text-xs px-2 py-1 rounded bg-gray-100 dark:bg-gray-800/50">JavaScript</span>
+                      <span className="text-xs px-2 py-1 rounded bg-gray-100 dark:bg-gray-800/50">MySQL</span>
+                      <span className="text-xs px-2 py-1 rounded bg-gray-100 dark:bg-gray-800/50">HTML/CSS</span>
+                    </div>
+                  </div>
+
+                  <div className="mt-6 flex gap-3">
+                    <a href="https://bugcriativo.page.gd/index.php?i=1" target="_blank" rel="noreferrer" className="text-sm inline-flex items-center gap-2 px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700 transition"><ExternalLink size={14}/> View Site</a>
+                    {/* <a href="[LINK_DO_REPOSITORIO]" target="_blank" rel="noreferrer" className="text-sm inline-flex items-center gap-1 px-3 py-1 rounded border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition"><Github size={14}/> Repo</a> */}
+                  </div>
+                </div>
+              </article>
+            </motion.div>
+            
+            <hr className="my-10 border-gray-300 dark:border-gray-700" />
+            
+            <motion.h2 className="text-2xl font-bold mb-6 text-center" initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+              Other Projects
+            </motion.h2>
+            {/* --- FIM DA SEÇÃO DE DESTAQUE --- */}
+
+
             <motion.div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6" variants={container} initial="hidden" whileInView="show" viewport={{ once: true }}>
               {projects.map(p => (
                 <motion.article key={p.id} className="rounded-xl overflow-hidden shadow-md bg-white dark:bg-gray-900/40 border dark:border-gray-800" variants={item}>
-                  {/* --- PLACEHOLDER DA IMAGEM RESTAURADO --- */}
                   <div className="h-40 bg-gray-200 dark:bg-gray-800 flex items-center justify-center">
-                    {/* Você pode colocar imagens em /public/projects/ e mudar o 'image' no array de projetos */}
-                    <div className="text-sm opacity-70">Preview image</div>
+                    {/* Imagem de placeholder traduzida */}
+                    <div className="text-sm opacity-70">Preview Image</div>
                   </div>
 
                   <div className="p-4">
@@ -213,9 +272,8 @@ export default function PortfolioFelippe() {
               ))}
             </motion.div>
             
-            {/* --- TEXTO DO BOTÃO ATUALIZADO --- */}
             <div className="mt-8 text-center">
-              <a href="https://github.com/felippefardin" target="_blank" rel="noreferrer" className="px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700">see more GitHub</a>
+              <a href="https://github.com/felippefardin" target="_blank" rel="noreferrer" className="px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700">See more on GitHub</a>
             </div>
           </div>
         </section>
@@ -256,7 +314,6 @@ export default function PortfolioFelippe() {
             >
               <input name="name" placeholder="Your name" required className="p-3 rounded border dark:border-gray-700 bg-white dark:bg-gray-900/40" />
               
-              {/* O Formspree usa o "name" do input de email para responder */}
               <input name="email" type="email" placeholder="Your email" required className="p-3 rounded border dark:border-gray-700 bg-white dark:bg-gray-900/40" />
               
               <textarea name="message" placeholder="Message" required className="p-3 rounded border dark:border-gray-700 bg-white dark:bg-gray-900/40 h-32"></textarea>
@@ -289,7 +346,6 @@ export default function PortfolioFelippe() {
                 <button className="text-sm opacity-80" onClick={() => setActiveProject(null)}>Close</button>
               </div>
 
-              {/* --- MODAL RESTAURADO --- */}
               <div className="mt-4 grid sm:grid-cols-2 gap-4">
                 <div className="h-48 bg-gray-100 dark:bg-gray-800 flex items-center justify-center">Preview</div>
                 <div>
