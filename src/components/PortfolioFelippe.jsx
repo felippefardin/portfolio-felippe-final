@@ -2,12 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, Sun, Moon, ExternalLink } from 'lucide-react';
 
-// PortfolioFelippe — single file React component (TailwindCSS + Framer Motion)
-// How to use:
-// 1) Create a new React project (Vite or Next.js). Install dependencies: framer-motion, lucide-react, tailwindcss.
-// 2) Drop this file under src/components/PortfolioFelippe.jsx and import it on your page (e.g. App.jsx).
-// 3) Tailwind config should allow dark mode = 'class'.
-
 export default function PortfolioFelippe() {
   // Dark mode (persist in localStorage)
   const [dark, setDark] = useState(() => {
@@ -23,45 +17,46 @@ export default function PortfolioFelippe() {
     try { localStorage.setItem('pf:dark', dark ? '1' : '0'); } catch (e) {}
   }, [dark]);
 
-  // Sample projects based on your CV (edit titles, descriptions and links)
+  // --- PROJETOS ESTÁTICOS ATUALIZADOS ---
   const projects = [
     {
       id: 1,
-      title: 'Library Management System',
-      tags: ['PHP', 'MySQL', 'Bootstrap'],
-      description: 'Full CRUD system for library inventory and loans. Backend in PHP with MySQL, frontend responsive with Bootstrap.',
-      image: '/projects/library.png',
-      repo: 'https://github.com/felippefardin/library-system',
-      live: '#'
+      title: 'Landing Page Mercado',
+      tags: ['HTML', 'CSS', 'JavaScript'], // (Tags de exemplo, você pode ajustar)
+      description: 'Uma landing page de mercado, focada em conversão.', // (Descrição de exemplo)
+      image: '/projects/project1.png', // (Você pode adicionar uma imagem em public/projects/)
+      repo: 'https://github.com/felippefardin/landing_page_mercado',
+      live: '#' // (Ajuste o link "live" se houver)
     },
     {
       id: 2,
-      title: 'Reservation System',
-      tags: ['PHP', 'jQuery', 'MySQL'],
-      description: 'Hotel reservation system with availability checks, user roles and PDF exports.',
-      image: '/projects/reservations.png',
-      repo: 'https://github.com/felippefardin/reservations',
+      title: 'App Controle de Contas',
+      tags: ['React', 'Node.js', 'App'], // (Tags de exemplo)
+      description: 'Aplicação para controle de contas pessoais e financeiras.', // (Descrição de exemplo)
+      image: '/projects/project2.png',
+      repo: 'https://github.com/felippefardin/app-controle-contas',
       live: '#'
     },
     {
       id: 3,
-      title: 'Agency Landing Page',
-      tags: ['HTML', 'CSS', 'JavaScript'],
-      description: 'Marketing landing page with contact form and conversion tracking.',
-      image: '/projects/landing.png',
-      repo: 'https://github.com/felippefardin/agency-landing',
+      title: 'Execução Contratual',
+      tags: ['PHP', 'Laravel', 'Gestão'], // (Tags de exemplo)
+      description: 'Sistema para gerenciamento e execução de contratos.', // (Descrição de exemplo)
+      image: '/projects/project3.png',
+      repo: 'https://github.com/felippefardin/execucaocontratual',
       live: '#'
     },
     {
       id: 4,
-      title: 'Social Network (Prototype)',
-      tags: ['React', 'Node.js', 'MongoDB'],
-      description: 'Prototype social feed and authentication flow (PWA ready).',
-      image: '/projects/social.png',
-      repo: 'https://github.com/felippefardin/social-prototype',
+      title: 'Projeto Calculadora',
+      tags: ['JavaScript', 'HTML', 'CSS'], // (Tags de exemplo)
+      description: 'Uma calculadora funcional construída com tecnologias web.', // (Descrição de exemplo)
+      image: '/projects/project4.png',
+      repo: 'https://github.com/felippefardin/projeto_calculadora',
       live: '#'
     }
   ];
+  // ---------------------------------------------
 
   const [activeProject, setActiveProject] = useState(null);
 
@@ -134,12 +129,12 @@ export default function PortfolioFelippe() {
             </motion.div>
 
             <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="flex justify-center md:justify-end">
-              <div className="w-64 h-64 md:w-72 md:h-72 rounded-2xl overflow-hidden shadow-lg bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center">
-                {/* Placeholder for photo — replace with your portrait */}
-                <div className="text-white text-center">
-                  <div className="text-2xl font-bold">Felippe</div>
-                  <div className="text-sm opacity-90">Full Stack Developer</div>
-                </div>
+              <div className="w-64 h-64 md:w-72 md:h-72 rounded-2xl overflow-hidden shadow-lg">
+                <img 
+                  src="/images/profile.jpeg" 
+                  alt="Felippe Fardin Andreata" 
+                  className="w-full h-full object-cover" 
+                />
               </div>
             </motion.div>
           </div>
@@ -192,8 +187,9 @@ export default function PortfolioFelippe() {
             <motion.div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6" variants={container} initial="hidden" whileInView="show" viewport={{ once: true }}>
               {projects.map(p => (
                 <motion.article key={p.id} className="rounded-xl overflow-hidden shadow-md bg-white dark:bg-gray-900/40 border dark:border-gray-800" variants={item}>
+                  {/* --- PLACEHOLDER DA IMAGEM RESTAURADO --- */}
                   <div className="h-40 bg-gray-200 dark:bg-gray-800 flex items-center justify-center">
-                    {/* Replace with project image */}
+                    {/* Você pode colocar imagens em /public/projects/ e mudar o 'image' no array de projetos */}
                     <div className="text-sm opacity-70">Preview image</div>
                   </div>
 
@@ -216,9 +212,10 @@ export default function PortfolioFelippe() {
                 </motion.article>
               ))}
             </motion.div>
-
+            
+            {/* --- TEXTO DO BOTÃO ATUALIZADO --- */}
             <div className="mt-8 text-center">
-              <a href="https://github.com/felippefardin" target="_blank" rel="noreferrer" className="px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700">See more on GitHub</a>
+              <a href="https://github.com/felippefardin" target="_blank" rel="noreferrer" className="px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700">see more GitHub</a>
             </div>
           </div>
         </section>
@@ -252,10 +249,18 @@ export default function PortfolioFelippe() {
           <div className="max-w-3xl mx-auto px-6">
             <motion.h2 className="text-2xl font-bold" initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>Contact</motion.h2>
 
-            <motion.form className="mt-6 grid gap-4" onSubmit={(e) => { e.preventDefault(); alert('This demo does not send email. I can add PHP (PHPMailer) or a serverless function if you want.'); }}>
+            <motion.form 
+              className="mt-6 grid gap-4" 
+              action="https://formspree.io/f/mrbowjvr" 
+              method="POST"
+            >
               <input name="name" placeholder="Your name" required className="p-3 rounded border dark:border-gray-700 bg-white dark:bg-gray-900/40" />
+              
+              {/* O Formspree usa o "name" do input de email para responder */}
               <input name="email" type="email" placeholder="Your email" required className="p-3 rounded border dark:border-gray-700 bg-white dark:bg-gray-900/40" />
+              
               <textarea name="message" placeholder="Message" required className="p-3 rounded border dark:border-gray-700 bg-white dark:bg-gray-900/40 h-32"></textarea>
+              
               <div className="flex items-center gap-3">
                 <button type="submit" className="px-4 py-2 rounded bg-blue-600 text-white">Send message</button>
                 <div className="text-sm opacity-70">Or email me at <a href="mailto:felippefardin@gmail.com" className="underline">felippefardin@gmail.com</a></div>
@@ -266,7 +271,7 @@ export default function PortfolioFelippe() {
 
         {/* Footer */}
         <footer className="border-t border-gray-200 dark:border-gray-800 py-8 mt-12">
-          <div className="max-w-6xl mx-auto px-6 text-center text-sm opacity-80">© 2025 Felippe Fardin Andreata — Built with care.</div>
+          <div className="max-w-6xl mx-auto px-6 text-center text-sm opacity-80">© 2025 Felippe Fardin Andreata</div>
         </footer>
       </main>
 
@@ -284,6 +289,7 @@ export default function PortfolioFelippe() {
                 <button className="text-sm opacity-80" onClick={() => setActiveProject(null)}>Close</button>
               </div>
 
+              {/* --- MODAL RESTAURADO --- */}
               <div className="mt-4 grid sm:grid-cols-2 gap-4">
                 <div className="h-48 bg-gray-100 dark:bg-gray-800 flex items-center justify-center">Preview</div>
                 <div>
@@ -294,6 +300,7 @@ export default function PortfolioFelippe() {
                   </div>
                 </div>
               </div>
+              
             </div>
           </motion.div>
         </div>
