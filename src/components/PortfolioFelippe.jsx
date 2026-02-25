@@ -21,7 +21,7 @@ export default function PortfolioFelippe() {
       id: 1,
       title: 'App Controle de Contas',
       tags: ['PHP', 'Laravel', 'MySQL', 'Security'],
-      description: 'Sistema de gestão financeira pessoal com foco em autenticação segura e proteção de dados.',
+      description: 'Personal financial management system focused on secure authentication and data protection.',
       repo: 'https://github.com/felippefardin/app-controle-contas.git',
       icon: <Database size={48}/>
     },
@@ -29,32 +29,58 @@ export default function PortfolioFelippe() {
       id: 2,
       title: 'Controle de Máquinas',
       tags: ['PHP', 'Inventory', 'Asset Management'],
-      description: 'Plataforma para inventário de hardware e controle de ativos tecnológicos.',
+      description: 'Platform for hardware inventory and technological asset control.',
       repo: 'https://github.com/felippefardin/controle_maquinas.git',
       icon: <Server size={48}/>
     },
     {
       id: 3,
-      title: 'PMG Serra - Sistemas',
-      tags: ['Sistemas Públicos', 'PHP', 'GovTech'],
-      description: 'Desenvolvimento de soluções para a Procuradoria Geral do Município da Serra.',
+      title: 'PMG Serra - Systems',
+      tags: ['Public Systems', 'PHP', 'GovTech'],
+      description: 'Development of solutions for the Municipal Attorney General\'s Office of Serra.',
       repo: 'https://github.com/felippefardin/pmg-serra.git',
       icon: <Shield size={48}/>
     },
     {
       id: 4,
-      title: 'Landing Page Profissional',
+      title: 'Professional Landing Page',
       tags: ['React', 'Tailwind', 'Vite'],
-      description: 'Portfólio moderno focado em performance e UX para apresentação profissional.',
+      description: 'Modern portfolio focused on performance and UX for professional presentation.',
       repo: 'https://github.com/felippefardin/landing-page-felippe.git',
       icon: <ExternalLink size={48}/>
     }
   ];
 
   const certifications = [
-    { title: 'Análise e Desenvolvimento de Sistemas', issuer: 'UVV - Universidade Vila Velha', icon: <BookOpen size={20}/> },
-    { title: 'Networking & Cybersecurity Basics', issuer: 'Cisco Networking Academy', icon: <Server size={20}/> },
-    { title: 'Certified in Cybersecurity (CC)', issuer: 'ISC2', icon: <Award size={20}/> }
+    { 
+      title: 'Analysis and Systems Development', 
+      issuer: 'UVV - Universidade Vila Velha', 
+      icon: <BookOpen size={20}/>,
+      link: '/diploma.pdf' // Referência ao arquivo enviado
+    },
+    { 
+      title: 'Certified in Cybersecurity (CC)', 
+      issuer: 'ISC2', 
+      icon: <Award size={20}/>,
+      link: 'https://www.credly.com/badges/860ebf6a-c11a-4de0-9f8c-2394e87caf3b/linked_in_profile'
+    },
+    { 
+      title: 'CIW JavaScript Specialist', 
+      issuer: 'DIO', 
+      icon: <Code size={20}/>,
+      link: 'https://www.dio.me/certificate/Z3UCHOAS/share'
+    },
+    { 
+      title: 'Go Developer Formation', 
+      issuer: 'DIO', 
+      icon: <Terminal size={20}/>,
+      link: 'https://www.dio.me/certificate/EZKHW71H/share'
+    },
+    { 
+      title: 'Networking & Cybersecurity Basics', 
+      issuer: 'Cisco Networking Academy', 
+      icon: <Server size={20}/> 
+    }
   ];
 
   const container = {
@@ -80,10 +106,10 @@ export default function PortfolioFelippe() {
           </div>
 
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-            <a href="#about" className="hover:text-blue-500 transition">Sobre</a>
-            <a href="#experience" className="hover:text-blue-500 transition">Carreira</a>
-            <a href="#projects" className="hover:text-blue-500 transition">Projetos</a>
-            <a href="#certs" className="hover:text-blue-500 transition">Certificações</a>
+            <a href="#about" className="hover:text-blue-500 transition">About</a>
+            <a href="#experience" className="hover:text-blue-500 transition">Career</a>
+            <a href="#projects" className="hover:text-blue-500 transition">Projects</a>
+            <a href="#certs" className="hover:text-blue-500 transition">Certifications</a>
           </nav>
 
           <div className="flex items-center gap-3">
@@ -101,12 +127,15 @@ export default function PortfolioFelippe() {
         <section id="about" className="max-w-6xl mx-auto px-6 mb-20">
           <div className="grid md:grid-cols-5 gap-12 items-center">
             <div className="md:col-span-3">
-              <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-blue-600 font-bold tracking-widest text-sm uppercase">Assessor Técnico de TI</motion.span>
+              <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-blue-600 font-bold tracking-widest text-sm uppercase">IT Technical Advisor</motion.span>
               <h1 className="text-5xl font-extrabold mt-2 mb-6">Felippe Fardin Andreata</h1>
               <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-                Especialista em Análise de Sistemas (UVV) focado em cibersegurança e desenvolvimento full stack. 
-                Atuo na transformação digital da administração pública, unindo código seguro à infraestrutura resiliente.
+                Systems Analysis specialist (UVV) focused on cybersecurity and full stack development. 
+                Currently working on the digital transformation of public administration, bridging secure code and resilient infrastructure.
               </p>
+              <div className="mt-8 flex gap-4">
+                <a href="mailto:felippefardin@hotmail.com" className="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-500/20">Let's Talk?</a>
+              </div>
             </div>
             <div className="md:col-span-2 flex justify-center">
                <img src="/images/profile.jpeg" alt="Felippe" className="w-64 h-64 rounded-3xl object-cover shadow-2xl border-8 border-white dark:border-gray-800 rotate-3 hover:rotate-0 transition-transform duration-500" />
@@ -114,52 +143,71 @@ export default function PortfolioFelippe() {
           </div>
         </section>
 
-        {/* Experiência Profissional */}
+        {/* Career Section */}
         <section id="experience" className="max-w-6xl mx-auto px-6 mb-20">
           <h2 className="text-3xl font-bold mb-10 flex items-center gap-3">
-            <Terminal className="text-blue-500" /> Experiência Atual
+            <Terminal className="text-blue-500" /> Current Experience
           </h2>
           <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl border border-blue-500/20 shadow-xl">
             <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
               <div>
-                <h3 className="text-2xl font-bold">Assessor Técnico</h3>
-                <p className="text-blue-600 dark:text-blue-400 font-medium">Procuradoria Municipal de Serra</p>
+                <h3 className="text-2xl font-bold">Technical Advisor</h3>
+                <p className="text-blue-600 dark:text-blue-400 font-medium">Municipal Attorney General's Office - Serra</p>
               </div>
-              <span className="bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 px-4 py-1 rounded-full text-sm font-bold mt-2 md:mt-0">Atual</span>
+              <span className="bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 px-4 py-1 rounded-full text-sm font-bold mt-2 md:mt-0">Present</span>
             </div>
-            <p className="text-gray-600 dark:text-gray-400 mb-6">
-              Responsável pela assessoria estratégica em tecnologia da informação, garantindo a integridade dos sistemas internos, 
-              suporte técnico especializado e otimização de fluxos digitais da Procuradoria.
+            <p className="text-gray-600 dark:text-gray-400 mb-6 font-medium italic">
+              "Strategic IT advice ensuring system integrity and technical support for municipal management."
             </p>
-            <div className="flex flex-wrap gap-2">
-              {['Gestão de TI', 'Segurança da Informação', 'Sistemas Públicos', 'Suporte Estratégico'].map(s => (
-                <span key={s} className="text-xs font-semibold px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-lg">{s}</span>
-              ))}
+          </div>
+        </section>
+
+        {/* Skills & Technologies (Simplified) */}
+        <section id="skills" className="max-w-6xl mx-auto px-6 mb-20">
+          <h2 className="text-3xl font-bold mb-10">Skills & Technologies</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="p-8 rounded-2xl bg-white dark:bg-gray-800 border dark:border-gray-700 shadow-sm">
+               <Shield className="text-red-500 mb-4" size={32} />
+               <h3 className="text-xl font-bold mb-4">Cybersecurity</h3>
+               <p className="text-sm opacity-80 leading-relaxed">Vulnerability Analysis, Linux Hardening, SIEM (Wazuh), SOC N1, and OWASP Top 10 focus.</p>
+            </div>
+            <div className="p-8 rounded-2xl bg-white dark:bg-gray-800 border dark:border-gray-700 shadow-sm">
+               <Code className="text-blue-500 mb-4" size={32} />
+               <h3 className="text-xl font-bold mb-4">Development</h3>
+               <p className="text-sm opacity-80 leading-relaxed">PHP (Laravel), JavaScript (React), API REST, MySQLi, Go, and Git/GitHub versioning.</p>
             </div>
           </div>
         </section>
 
-        {/* Certificações */}
+        {/* Certifications (Updated with Links) */}
         <section id="certs" className="max-w-6xl mx-auto px-6 mb-20">
-          <h2 className="text-3xl font-bold mb-10">Certificações & Educação</h2>
+          <h2 className="text-3xl font-bold mb-10 font-mono tracking-tighter uppercase">Certifications & Education</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {certifications.map((cert, i) => (
-              <motion.div key={i} whileHover={{ y: -5 }} className="p-6 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 flex items-start gap-4 shadow-sm">
+              <motion.a 
+                key={i} 
+                href={cert.link} 
+                target="_blank" 
+                rel="noreferrer"
+                whileHover={{ y: -5, borderColor: '#3b82f6' }} 
+                className={`p-6 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 flex items-start gap-4 shadow-sm transition-all ${cert.link ? 'cursor-pointer' : 'cursor-default'}`}
+              >
                 <div className="p-3 bg-blue-50 dark:bg-blue-900/30 rounded-lg text-blue-600">
                   {cert.icon}
                 </div>
                 <div>
                   <h4 className="font-bold text-sm">{cert.title}</h4>
                   <p className="text-xs opacity-60 mt-1">{cert.issuer}</p>
+                  {cert.link && <span className="text-[10px] text-blue-500 font-bold mt-2 block">VIEW CREDENTIAL →</span>}
                 </div>
-              </motion.div>
+              </motion.a>
             ))}
           </div>
         </section>
 
-        {/* Projetos */}
+        {/* Projects */}
         <section id="projects" className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold mb-10">Projetos em Destaque</h2>
+          <h2 className="text-3xl font-bold mb-10">Featured Projects</h2>
           <motion.div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" variants={container} initial="hidden" whileInView="show">
             {projects.map(p => (
               <motion.article key={p.id} className="group p-6 rounded-2xl bg-white dark:bg-gray-800 border dark:border-gray-700 hover:shadow-2xl hover:border-blue-500/50 transition-all" variants={item}>
@@ -170,7 +218,7 @@ export default function PortfolioFelippe() {
                   {p.tags.slice(0, 3).map(t => <span key={t} className="text-[10px] px-2 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded uppercase font-bold">{t}</span>)}
                 </div>
                 <a href={p.repo} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm font-bold text-gray-900 dark:text-white hover:text-blue-600 transition">
-                   <Github size={16}/> Código Fonte
+                   <Github size={16}/> Source Code
                 </a>
               </motion.article>
             ))}
@@ -182,9 +230,9 @@ export default function PortfolioFelippe() {
         <div className="flex justify-center gap-6 mb-6 opacity-60">
           <a href="https://github.com/felippefardin"><Github size={20}/></a>
           <a href="https://linkedin.com/in/felippefardin"><Linkedin size={20}/></a>
-          <a href="mailto:felippe.andreata@example.com"><Mail size={20}/></a>
+          <a href="mailto:felippefardin@hotmail.com"><Mail size={20}/></a>
         </div>
-        <p className="text-sm opacity-50">© 2025 Felippe Fardin Andreata | Desenvolvido com React & Tailwind</p>
+        <p className="text-sm opacity-50">© 2025 Felippe Fardin Andreata | Focused on Security & Tech</p>
       </footer>
     </div>
   );
