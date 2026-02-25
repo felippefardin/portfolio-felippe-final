@@ -257,8 +257,8 @@ export default function PortfolioFelippe() {
                 <div className="w-20 h-20 bg-green-100 dark:bg-green-900/30 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Send size={40} />
                 </div>
-                <h3 className="text-2xl font-bold mb-2">Sua mensagem foi enviada.</h3>
-                <p className="text-gray-600 dark:text-gray-400 font-medium">Em breve retorno contato.</p>
+                <h3 className="text-2xl font-bold mb-2">Your message has been sent.</h3>
+                <p className="text-gray-600 dark:text-gray-400 font-medium">Thank you for getting in touch. I will get back to you shortly.</p>
                 <button onClick={() => setSubmitted(false)} className="mt-8 text-blue-600 font-bold hover:underline">Send another message</button>
               </motion.div>
             ) : (
