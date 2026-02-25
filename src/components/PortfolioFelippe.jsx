@@ -53,10 +53,10 @@ export default function PortfolioFelippe() {
 
   const certifications = [
     { 
-      title: 'Analysis and Systems Development', 
+      title: 'Analysis and System Development', 
       issuer: 'UVV - Universidade Vila Velha', 
       icon: <BookOpen size={20}/>,
-      link: '/diploma.pdf' // Referência ao arquivo enviado
+      link: 'https://www.canva.com/design/DAHCWVV5Tx4/cB0nq37VCkb40tJIvGPBBA/view?utm_content=DAHCWVV5Tx4&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h67fe51227f'
     },
     { 
       title: 'Certified in Cybersecurity (CC)', 
@@ -134,7 +134,7 @@ export default function PortfolioFelippe() {
                 Currently working on the digital transformation of public administration, bridging secure code and resilient infrastructure.
               </p>
               <div className="mt-8 flex gap-4">
-                <a href="mailto:felippefardin@hotmail.com" className="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-500/20">Let's Talk?</a>
+                <a href="#contact" className="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-500/20">Let's Talk?</a>
               </div>
             </div>
             <div className="md:col-span-2 flex justify-center">
@@ -162,9 +162,9 @@ export default function PortfolioFelippe() {
           </div>
         </section>
 
-        {/* Skills & Technologies (Simplified) */}
+        {/* Skills & Technologies */}
         <section id="skills" className="max-w-6xl mx-auto px-6 mb-20">
-          <h2 className="text-3xl font-bold mb-10">Skills & Technologies</h2>
+          <h2 className="text-3xl font-bold mb-10 font-mono tracking-tighter uppercase">Skills & Technologies</h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="p-8 rounded-2xl bg-white dark:bg-gray-800 border dark:border-gray-700 shadow-sm">
                <Shield className="text-red-500 mb-4" size={32} />
@@ -179,9 +179,9 @@ export default function PortfolioFelippe() {
           </div>
         </section>
 
-        {/* Certifications (Updated with Links) */}
+        {/* Certifications */}
         <section id="certs" className="max-w-6xl mx-auto px-6 mb-20">
-          <h2 className="text-3xl font-bold mb-10 font-mono tracking-tighter uppercase">Certifications & Education</h2>
+          <h2 className="text-3xl font-bold mb-10">Certifications & Education</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {certifications.map((cert, i) => (
               <motion.a 
@@ -198,7 +198,7 @@ export default function PortfolioFelippe() {
                 <div>
                   <h4 className="font-bold text-sm">{cert.title}</h4>
                   <p className="text-xs opacity-60 mt-1">{cert.issuer}</p>
-                  {cert.link && <span className="text-[10px] text-blue-500 font-bold mt-2 block">VIEW CREDENTIAL →</span>}
+                  {cert.link && <span className="text-[10px] text-blue-500 font-bold mt-2 block uppercase tracking-wider">View Credential →</span>}
                 </div>
               </motion.a>
             ))}
@@ -206,7 +206,7 @@ export default function PortfolioFelippe() {
         </section>
 
         {/* Projects */}
-        <section id="projects" className="max-w-6xl mx-auto px-6">
+        <section id="projects" className="max-w-6xl mx-auto px-6 mb-20">
           <h2 className="text-3xl font-bold mb-10">Featured Projects</h2>
           <motion.div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" variants={container} initial="hidden" whileInView="show">
             {projects.map(p => (
@@ -224,12 +224,23 @@ export default function PortfolioFelippe() {
             ))}
           </motion.div>
         </section>
+
+        {/* Contact Form */}
+        <section id="contact" className="max-w-3xl mx-auto px-6">
+          <h2 className="text-3xl font-bold mb-6 text-center">Let's Talk?</h2>
+          <form className="grid gap-4" action="https://formspree.io/f/mrbowjvr" method="POST">
+            <input name="name" placeholder="Your name" required className="p-4 rounded-xl border dark:border-gray-700 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 outline-none transition" />
+            <input name="email" type="email" placeholder="Your email" required className="p-4 rounded-xl border dark:border-gray-700 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 outline-none transition" />
+            <textarea name="message" placeholder="Your message..." required className="p-4 rounded-xl border dark:border-gray-700 bg-white dark:bg-gray-800 h-32 focus:ring-2 focus:ring-blue-500 outline-none transition"></textarea>
+            <button type="submit" className="px-8 py-4 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-500/20">Send Message</button>
+          </form>
+        </section>
       </main>
 
       <footer className="border-t border-gray-200 dark:border-gray-800 py-12 text-center">
         <div className="flex justify-center gap-6 mb-6 opacity-60">
-          <a href="https://github.com/felippefardin"><Github size={20}/></a>
-          <a href="https://linkedin.com/in/felippefardin"><Linkedin size={20}/></a>
+          <a href="https://github.com/felippefardin" target="_blank" rel="noreferrer"><Github size={20}/></a>
+          <a href="https://linkedin.com/in/felippefardin" target="_blank" rel="noreferrer"><Linkedin size={20}/></a>
           <a href="mailto:felippefardin@hotmail.com"><Mail size={20}/></a>
         </div>
         <p className="text-sm opacity-50">© 2025 Felippe Fardin Andreata | Focused on Security & Tech</p>
