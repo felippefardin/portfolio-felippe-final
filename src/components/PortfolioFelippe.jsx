@@ -11,7 +11,6 @@ export default function PortfolioFelippe() {
     }
   });
 
-  // Estado para controlar a mensagem de sucesso após envio
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
@@ -19,7 +18,6 @@ export default function PortfolioFelippe() {
     try { localStorage.setItem('pf:dark', dark ? '1' : '0'); } catch (e) {}
   }, [dark]);
 
-  // Função para lidar com o envio do formulário via AJAX para evitar recarregar a página
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -146,11 +144,13 @@ export default function PortfolioFelippe() {
         <section id="about" className="max-w-6xl mx-auto px-6 mb-20">
           <div className="grid md:grid-cols-5 gap-12 items-center">
             <div className="md:col-span-3">
-              <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-blue-600 font-bold tracking-widest text-sm uppercase">IT Technical Advisor</motion.span>
+              <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-blue-600 font-bold tracking-widest text-sm uppercase">Full Stack Developer | Cybersecurity</motion.span>
               <h1 className="text-5xl font-extrabold mt-2 mb-6">Felippe Fardin Andreata</h1>
               <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-                Systems Analysis graduate focused on cybersecurity and full stack development. 
-                Currently working on the digital transformation of public administration, bridging secure code and resilient infrastructure.
+                Junior Full Stack Developer, graduated in Systems Analysis and Development (UVV) and currently a postgraduate student in Cybersecurity. 
+                I operate at the intersection of Full Stack development and Information Security, enhancing skills focused on defensive security, 
+                best practices, incident investigation, and threat monitoring. Currently working on the digital transformation of public administration, 
+                bridging secure code and resilient infrastructure. I am open to challenges and opportunities to apply my knowledge and evolve professionally.
               </p>
               <div className="mt-8">
                 <a href="#contact" className="bg-blue-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-500/20">Let's Talk?</a>
@@ -244,7 +244,7 @@ export default function PortfolioFelippe() {
           </motion.div>
         </section>
 
-        {/* Adjusted Contact Section: Let's Talk? */}
+        {/* Contact Section */}
         <section id="contact" className="max-w-3xl mx-auto px-6 pt-10">
           <div className="text-center mb-10">
             <h2 className="text-4xl font-extrabold mb-4">Let's Talk?</h2>
@@ -253,75 +253,36 @@ export default function PortfolioFelippe() {
 
           <div className="bg-white dark:bg-gray-800 p-8 rounded-3xl border dark:border-gray-700 shadow-2xl relative overflow-hidden">
             {submitted ? (
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.9 }} 
-                animate={{ opacity: 1, scale: 1 }}
-                className="py-20 text-center"
-              >
+              <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="py-20 text-center">
                 <div className="w-20 h-20 bg-green-100 dark:bg-green-900/30 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Send size={40} />
                 </div>
                 <h3 className="text-2xl font-bold mb-2">Sua mensagem foi enviada.</h3>
                 <p className="text-gray-600 dark:text-gray-400 font-medium">Em breve retorno contato.</p>
-                <button 
-                  onClick={() => setSubmitted(false)}
-                  className="mt-8 text-blue-600 font-bold hover:underline"
-                >
-                  Send another message
-                </button>
+                <button onClick={() => setSubmitted(false)} className="mt-8 text-blue-600 font-bold hover:underline">Send another message</button>
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="grid gap-5">
                 <div className="grid md:grid-cols-2 gap-5">
                   <div className="space-y-2">
                     <label className="text-xs font-bold uppercase tracking-wider opacity-60 ml-1">Name</label>
-                    <input 
-                      name="name" 
-                      type="text"
-                      placeholder="Felippe Andreata" 
-                      required 
-                      className="w-full p-4 rounded-xl border dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50 focus:ring-2 focus:ring-blue-500 outline-none transition" 
-                    />
+                    <input name="name" type="text" placeholder="Your Name" required className="w-full p-4 rounded-xl border dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50 focus:ring-2 focus:ring-blue-500 outline-none transition" />
                   </div>
                   <div className="space-y-2">
                     <label className="text-xs font-bold uppercase tracking-wider opacity-60 ml-1">Contact (Email/Phone)</label>
-                    <input 
-                      name="contact" 
-                      type="text"
-                      placeholder="email@example.com" 
-                      required 
-                      className="w-full p-4 rounded-xl border dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50 focus:ring-2 focus:ring-blue-500 outline-none transition" 
-                    />
+                    <input name="contact" type="text" placeholder="email@example.com" required className="w-full p-4 rounded-xl border dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50 focus:ring-2 focus:ring-blue-500 outline-none transition" />
                   </div>
                 </div>
-
                 <div className="space-y-2">
                   <label className="text-xs font-bold uppercase tracking-wider opacity-60 ml-1">Subject / Title</label>
-                  <input 
-                    name="subject" 
-                    type="text"
-                    placeholder="New Cybersecurity Project" 
-                    required 
-                    className="w-full p-4 rounded-xl border dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50 focus:ring-2 focus:ring-blue-500 outline-none transition" 
-                  />
+                  <input name="subject" type="text" placeholder="Collaboration Inquiry" required className="w-full p-4 rounded-xl border dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50 focus:ring-2 focus:ring-blue-500 outline-none transition" />
                 </div>
-
                 <div className="space-y-2">
                   <label className="text-xs font-bold uppercase tracking-wider opacity-60 ml-1">Message</label>
-                  <textarea 
-                    name="message" 
-                    placeholder="Describe how we can collaborate..." 
-                    required 
-                    className="w-full p-4 rounded-xl border dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50 h-32 focus:ring-2 focus:ring-blue-500 outline-none transition resize-none"
-                  ></textarea>
+                  <textarea name="message" placeholder="Describe how we can collaborate..." required className="w-full p-4 rounded-xl border dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50 h-32 focus:ring-2 focus:ring-blue-500 outline-none transition resize-none"></textarea>
                 </div>
-
-                <button 
-                  type="submit" 
-                  className="w-full py-4 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-500/20 flex items-center justify-center gap-2 group"
-                >
-                  Send Message 
-                  <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                <button type="submit" className="w-full py-4 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-500/20 flex items-center justify-center gap-2 group">
+                  Send Message <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </button>
               </form>
             )}
