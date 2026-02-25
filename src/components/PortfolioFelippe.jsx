@@ -23,14 +23,13 @@ export default function PortfolioFelippe() {
     const form = e.target;
     const data = new FormData(form);
     
-    // Using the specified professional email
-    const response = await fetch("https://formspree.io/f/contatotech.tecnologia@gmail.com", {
-      method: "POST",
-      body: data,
-      headers: {
-        'Accept': 'application/json'
-      }
-    });
+    const response = await fetch("https://formspree.io/f/mrbowjvr", {
+  method: "POST",
+  body: data,
+  headers: {
+    Accept: "application/json",
+  },
+});
 
     if (response.ok) {
       setSubmitted(true);
