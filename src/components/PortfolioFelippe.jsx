@@ -23,6 +23,7 @@ export default function PortfolioFelippe() {
     const form = e.target;
     const data = new FormData(form);
     
+    // Using the specified professional email
     const response = await fetch("https://formspree.io/f/contatotech.tecnologia@gmail.com", {
       method: "POST",
       body: data,
@@ -257,8 +258,8 @@ export default function PortfolioFelippe() {
                 <div className="w-20 h-20 bg-green-100 dark:bg-green-900/30 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Send size={40} />
                 </div>
-                <h3 className="text-2xl font-bold mb-2">Your message has been sent.</h3>
-                <p className="text-gray-600 dark:text-gray-400 font-medium">Thank you for getting in touch. I will get back to you shortly.</p>
+                <h3 className="text-2xl font-bold mb-2 text-green-600">Your message has been sent successfully.</h3>
+                <p className="text-gray-600 dark:text-gray-400 font-medium">Please wait for a response.</p>
                 <button onClick={() => setSubmitted(false)} className="mt-8 text-blue-600 font-bold hover:underline">Send another message</button>
               </motion.div>
             ) : (
