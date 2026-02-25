@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Sun, Moon, ExternalLink, Shield, Terminal, Server, Code, Database, Award, BookOpen } from 'lucide-react';
+import { Github, Linkedin, Mail, Sun, Moon, ExternalLink, Shield, Terminal, Server, Code, Database, Award, BookOpen, Send } from 'lucide-react';
 
 export default function PortfolioFelippe() {
   const [dark, setDark] = useState(() => {
@@ -11,10 +11,33 @@ export default function PortfolioFelippe() {
     }
   });
 
+  // Estado para controlar a mensagem de sucesso após envio
+  const [submitted, setSubmitted] = useState(false);
+
   useEffect(() => {
     document.documentElement.classList.toggle('dark', dark);
     try { localStorage.setItem('pf:dark', dark ? '1' : '0'); } catch (e) {}
   }, [dark]);
+
+  // Função para lidar com o envio do formulário via AJAX para evitar recarregar a página
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const data = new FormData(form);
+    
+    const response = await fetch("https://formspree.io/f/contatotech.tecnologia@gmail.com", {
+      method: "POST",
+      body: data,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      setSubmitted(true);
+      form.reset();
+    }
+  };
 
   const projects = [
     {
@@ -75,11 +98,6 @@ export default function PortfolioFelippe() {
       issuer: 'DIO', 
       icon: <Terminal size={20}/>,
       link: 'https://www.dio.me/certificate/EZKHW71H/share'
-    },
-    { 
-      title: 'Networking & Cybersecurity Basics', 
-      issuer: 'Cisco Networking Academy', 
-      icon: <Server size={20}/> 
     }
   ];
 
@@ -110,6 +128,7 @@ export default function PortfolioFelippe() {
             <a href="#experience" className="hover:text-blue-500 transition">Career</a>
             <a href="#projects" className="hover:text-blue-500 transition">Projects</a>
             <a href="#certs" className="hover:text-blue-500 transition">Certifications</a>
+            <a href="#contact" className="hover:text-blue-500 transition">Contact</a>
           </nav>
 
           <div className="flex items-center gap-3">
@@ -130,11 +149,11 @@ export default function PortfolioFelippe() {
               <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-blue-600 font-bold tracking-widest text-sm uppercase">IT Technical Advisor</motion.span>
               <h1 className="text-5xl font-extrabold mt-2 mb-6">Felippe Fardin Andreata</h1>
               <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-                Systems Analysis specialist (UVV) focused on cybersecurity and full stack development. 
+                Systems Analysis graduate focused on cybersecurity and full stack development. 
                 Currently working on the digital transformation of public administration, bridging secure code and resilient infrastructure.
               </p>
-              <div className="mt-8 flex gap-4">
-                <a href="#contact" className="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-500/20">Let's Talk?</a>
+              <div className="mt-8">
+                <a href="#contact" className="bg-blue-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-500/20">Let's Talk?</a>
               </div>
             </div>
             <div className="md:col-span-2 flex justify-center">
@@ -182,7 +201,7 @@ export default function PortfolioFelippe() {
         {/* Certifications */}
         <section id="certs" className="max-w-6xl mx-auto px-6 mb-20">
           <h2 className="text-3xl font-bold mb-10">Certifications & Education</h2>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {certifications.map((cert, i) => (
               <motion.a 
                 key={i} 
@@ -225,15 +244,88 @@ export default function PortfolioFelippe() {
           </motion.div>
         </section>
 
-        {/* Contact Form */}
-        <section id="contact" className="max-w-3xl mx-auto px-6">
-          <h2 className="text-3xl font-bold mb-6 text-center">Let's Talk?</h2>
-          <form className="grid gap-4" action="https://formspree.io/f/mrbowjvr" method="POST">
-            <input name="name" placeholder="Your name" required className="p-4 rounded-xl border dark:border-gray-700 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 outline-none transition" />
-            <input name="email" type="email" placeholder="Your email" required className="p-4 rounded-xl border dark:border-gray-700 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 outline-none transition" />
-            <textarea name="message" placeholder="Your message..." required className="p-4 rounded-xl border dark:border-gray-700 bg-white dark:bg-gray-800 h-32 focus:ring-2 focus:ring-blue-500 outline-none transition"></textarea>
-            <button type="submit" className="px-8 py-4 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-500/20">Send Message</button>
-          </form>
+        {/* Adjusted Contact Section: Let's Talk? */}
+        <section id="contact" className="max-w-3xl mx-auto px-6 pt-10">
+          <div className="text-center mb-10">
+            <h2 className="text-4xl font-extrabold mb-4">Let's Talk?</h2>
+            <p className="text-gray-600 dark:text-gray-400">Fill out the form below to get in touch professionally.</p>
+          </div>
+
+          <div className="bg-white dark:bg-gray-800 p-8 rounded-3xl border dark:border-gray-700 shadow-2xl relative overflow-hidden">
+            {submitted ? (
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.9 }} 
+                animate={{ opacity: 1, scale: 1 }}
+                className="py-20 text-center"
+              >
+                <div className="w-20 h-20 bg-green-100 dark:bg-green-900/30 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Send size={40} />
+                </div>
+                <h3 className="text-2xl font-bold mb-2">Sua mensagem foi enviada.</h3>
+                <p className="text-gray-600 dark:text-gray-400 font-medium">Em breve retorno contato.</p>
+                <button 
+                  onClick={() => setSubmitted(false)}
+                  className="mt-8 text-blue-600 font-bold hover:underline"
+                >
+                  Send another message
+                </button>
+              </motion.div>
+            ) : (
+              <form onSubmit={handleSubmit} className="grid gap-5">
+                <div className="grid md:grid-cols-2 gap-5">
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold uppercase tracking-wider opacity-60 ml-1">Name</label>
+                    <input 
+                      name="name" 
+                      type="text"
+                      placeholder="Felippe Andreata" 
+                      required 
+                      className="w-full p-4 rounded-xl border dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50 focus:ring-2 focus:ring-blue-500 outline-none transition" 
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold uppercase tracking-wider opacity-60 ml-1">Contact (Email/Phone)</label>
+                    <input 
+                      name="contact" 
+                      type="text"
+                      placeholder="email@example.com" 
+                      required 
+                      className="w-full p-4 rounded-xl border dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50 focus:ring-2 focus:ring-blue-500 outline-none transition" 
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-xs font-bold uppercase tracking-wider opacity-60 ml-1">Subject / Title</label>
+                  <input 
+                    name="subject" 
+                    type="text"
+                    placeholder="New Cybersecurity Project" 
+                    required 
+                    className="w-full p-4 rounded-xl border dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50 focus:ring-2 focus:ring-blue-500 outline-none transition" 
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-xs font-bold uppercase tracking-wider opacity-60 ml-1">Message</label>
+                  <textarea 
+                    name="message" 
+                    placeholder="Describe how we can collaborate..." 
+                    required 
+                    className="w-full p-4 rounded-xl border dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50 h-32 focus:ring-2 focus:ring-blue-500 outline-none transition resize-none"
+                  ></textarea>
+                </div>
+
+                <button 
+                  type="submit" 
+                  className="w-full py-4 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-500/20 flex items-center justify-center gap-2 group"
+                >
+                  Send Message 
+                  <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                </button>
+              </form>
+            )}
+          </div>
         </section>
       </main>
 
@@ -241,9 +333,9 @@ export default function PortfolioFelippe() {
         <div className="flex justify-center gap-6 mb-6 opacity-60">
           <a href="https://github.com/felippefardin" target="_blank" rel="noreferrer"><Github size={20}/></a>
           <a href="https://linkedin.com/in/felippefardin" target="_blank" rel="noreferrer"><Linkedin size={20}/></a>
-          <a href="mailto:felippefardin@hotmail.com"><Mail size={20}/></a>
+          <a href="mailto:contatotech.tecnologia@gmail.com"><Mail size={20}/></a>
         </div>
-        <p className="text-sm opacity-50">© 2025 Felippe Fardin Andreata | Focused on Security & Tech</p>
+        <p className="text-sm opacity-50">© 2026 Felippe Fardin Andreata | Focused on Security & Tech</p>
       </footer>
     </div>
   );
